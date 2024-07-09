@@ -23,3 +23,4 @@ This app uses:
 - Streamlit (st) for the app framework
 - Pandas (pd) to load the dataset
 - Altair (alt) for data visualization
+'''

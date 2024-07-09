@@ -1,26 +1,23 @@
 
 import streamlit as st
-import pandas as pd
-import altair as alt
 
-# Load dataset (replace with your own data)
-data = pd.read_csv("your_data.csv")
+# Welcome page
+st.title("Welcome to Foodie Frenzy!")
+st.image("food_image.jpg", width=300)
+st.write("Order your favorite food now!")
 
-# Create Streamlit app
-st.title("Data Visualization App")
+# Order page
+order_page = st.selectbox("Choose a page", ["Order", "About Us"])
 
-# Select column to visualize
-column = st.selectbox("Choose a column", data.columns)
+if order_page == "Order":
+	# Food options
+	food_options = st.selectbox("Select food", ["Pizza", "Burger", "Salad"])
 
-# Create bar chart using Altair
-chart = alt.Chart(data).mark_bar().encode(x="index", y=column)
+	# Quantity
+	quantity = st.number_input("Quantity", min_value=1, max_value=10)
 
-# Display chart
-st.altair_chart(chart, use_container_width=True)
-```
-This app uses:
-
-- Streamlit (st) for the app framework
-- Pandas (pd) to load the dataset
-- Altair (alt) for data visualization
-'''
+	# Place order button
+	if st.button("Place Order"):
+		st.write(f"Order placed! {quantity} {food_options} coming your way!")
+elif order_page == "About Us":
+	st.write("Welcome to Foodie Frenzy! We are a team of food enthusiasts dedicated to serving you the best food in town.")

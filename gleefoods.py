@@ -17,7 +17,7 @@ if order_page == "Order":
 	quantity = st.number_input("Quantity", min_value=1, max_value=10)
 
 	# Place order button
-	if st.button("Place Order"):
+if st.button("Place Order"):
 		st.write(f"Order placed! {quantity} {food_options} coming your way!")
 elif order_page == "About Us":
 	st.write("Welcome to Foodie Frenzy! We are a team of food enthusiasts dedicated to serving you the best food in town.")
